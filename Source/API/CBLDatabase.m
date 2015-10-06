@@ -453,6 +453,15 @@ static NSString* makeLocalDocID(NSString* docID) {
     return nil;
 }
 
+#pragma mark - EVIL METHODS:
+
+- (CBLStatusCode)forceInsert:(NSDictionary *)revisionProperties error:(NSError**)outError
+{
+    CBL_Body *body = [[CBL_Body alloc] initWithProperties:revisionProperties];
+    CBL_Revision *revision = [[CBL_Revision alloc] initWithBody:body];
+    
+    return (CBLStatusCode)[self forceInsert:revision revisionHistory:@[] source:nil error:outError];
+}
 
 @end
 

@@ -6,6 +6,47 @@
 //  Copyright (c) 2012-2013 Couchbase, Inc. All rights reserved.
 //
 
+typedef enum {
+    kCBLStatusCodeOK             = 200,
+    kCBLStatusCodeCreated        = 201,
+    kCBLStatusCodeAccepted       = 202,
+    
+    kCBLStatusCodeNotModified    = 304,
+    
+    kCBLStatusCodeBadRequest     = 400,
+    kCBLStatusCodeUnauthorized   = 401,
+    kCBLStatusCodeForbidden      = 403,
+    kCBLStatusCodeNotFound       = 404,
+    kCBLStatusCodeMethodNotAllowed = 405,
+    kCBLStatusCodeNotAcceptable  = 406,
+    kCBLStatusCodeConflict       = 409,
+    kCBLStatusCodeDuplicate      = 412,      // Formally known as "Precondition Failed"
+    kCBLStatusCodeUnsupportedType= 415,
+    
+    kCBLStatusCodeServerError    = 500,
+    kCBLStatusCodeNotImplemented = 501,
+    
+    // Non-HTTP errors:
+    kCBLStatusCodeBadEncoding    = 490,
+    kCBLStatusCodeBadAttachment  = 491,
+    kCBLStatusCodeAttachmentNotFound = 492,
+    kCBLStatusCodeBadJSON        = 493,
+    kCBLStatusCodeBadID          = 494,
+    kCBLStatusCodeBadParam       = 495,
+    kCBLStatusCodeDeleted        = 496,      // Document deleted
+    
+    kCBLStatusCodeBadChangesFeed = 587,
+    kCBLStatusCodeChangesFeedTruncated = 588,
+    kCBLStatusCodeUpstreamError  = 589,      // Error from remote replication server
+    kCBLStatusCodeDBError        = 590,      // SQLite error
+    kCBLStatusCodeCorruptError   = 591,      // bad data in database
+    kCBLStatusCodeAttachmentError= 592,      // problem with attachment store
+    kCBLStatusCodeCallbackError  = 593,      // app callback (emit fn, etc.) failed
+    kCBLStatusCodeException      = 594,      // Exception raised/caught
+    kCBLStatusCodeDBBusy         = 595,      // SQLite DB is busy (this is recoverable!)
+} CBLStatusCode;
+
+
 #import "CBLBase.h"
 #import "CBLView.h"
 @class CBLManager, CBLDocument, CBLRevision, CBLSavedRevision, CBLView, CBLQuery, CBLReplication;
@@ -36,6 +77,11 @@ typedef BOOL (^CBLFilterBlock) (CBLSavedRevision* revision, NSDictionary* __null
 
 /** A CouchbaseLite database. */
 @interface CBLDatabase : NSObject
+
+
+#pragma mark - EVIL METHODS:
+
+- (CBLStatusCode)forceInsert:(NSDictionary *)revisionProperties error:(NSError**)outError;
 
 /** The database's name. */
 @property (readonly) NSString* name;

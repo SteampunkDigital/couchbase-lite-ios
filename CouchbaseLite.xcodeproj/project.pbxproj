@@ -3273,6 +3273,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CBL;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Couchbase, Inc";
 				TargetAttributes = {
