@@ -510,6 +510,23 @@ static NSString* makeLocalDocID(NSString* docID) {
 }
 
 
+#pragma mark - APPRO METHODS
+
+- (void)forceInsert:(NSDictionary *)revisionProperties revisionHistory:(NSArray *)revisionHistory error:(NSError **)outError
+{
+    CBL_Body *body = [[CBL_Body alloc] initWithProperties:revisionProperties];
+    CBL_Revision *revision = [[CBL_Revision alloc] initWithBody:body];
+    NSMutableArray *revIds = [NSMutableArray new];
+    for (id rev in revisionHistory) {
+        if ([rev isKindOfClass:NSString.class]) {
+            [revIds addObject:[CBL_RevID fromString:rev]];
+        } else if ([rev isKindOfClass:NSData.class]) {
+            [revIds addObject:[CBL_RevID fromData:rev]];
+        }
+    }
+    [self forceInsert:revision revisionHistory:revIds source:nil allowStubAttachments:NO error:outError];
+}
+
 @end
 
 

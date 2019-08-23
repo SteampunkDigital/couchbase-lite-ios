@@ -218,6 +218,11 @@ typedef BOOL (^CBLFilterBlock) (CBLSavedRevision* revision, NSDictionary* __null
     You must call -start on the replication to start it. */
 - (CBLReplication*) createPullReplication: (NSURL*)url;
 
+#pragma mark - APPRO METHODS
+
+- (void)forceInsert:(NSDictionary *)revisionProperties
+    revisionHistory:(NSArray *)revisionHistory
+              error:(NSError **)outError;
 
 - (instancetype) init NS_UNAVAILABLE;
 
