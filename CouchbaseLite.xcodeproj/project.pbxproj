@@ -1402,13 +1402,6 @@
 			remoteGlobalIDString = 27E66A571A7305B10091DA3F;
 			remoteInfo = "CBL SQLite Storage";
 		};
-		27E66B4C1A73082E0091DA3F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27E66AD01A7307590091DA3F;
-			remoteInfo = "CBL ForestDB Storage";
-		};
 		27F1B0051A84160E0056DA1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -4285,7 +4278,6 @@
 			dependencies = (
 				27452BB21AB1167300327776 /* PBXTargetDependency */,
 				27E66B4B1A73082E0091DA3F /* PBXTargetDependency */,
-				27E66B4D1A73082E0091DA3F /* PBXTargetDependency */,
 			);
 			name = "CBL iOS";
 			productName = iTouchDB;
@@ -4454,7 +4446,7 @@
 					};
 					27452BB71AB1180800327776 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = N2Q372V7W2;
+						DevelopmentTeam = PPA5SYHRAZ;
 					};
 					275315D414ACF0A10065964D = {
 						DevelopmentTeam = N2Q372V7W2;
@@ -4483,6 +4475,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -4809,7 +4802,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "source \"$SCRIPT_INPUT_FILE_0\"";
+			shellScript = "source \"$SCRIPT_INPUT_FILE_0\"\n";
 		};
 		27B0B8061492BE2100A817AD /* Copy Library */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4823,7 +4816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp \"${UNIVERSAL_BUILD_DIR}/libCouchbaseLiteFat.a\" \"${CONFIGURATION_BUILD_DIR}/${EXECUTABLE_PATH}\"";
+			shellScript = "cp \"${UNIVERSAL_BUILD_DIR}/libCouchbaseLiteFat.a\" \"${CONFIGURATION_BUILD_DIR}/${EXECUTABLE_PATH}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		27E66ACB1A7305B10091DA3F /* Build Fat Library */ = {
@@ -4871,7 +4864,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "source \"$SCRIPT_INPUT_FILE_0\"";
+			shellScript = "source \"$SCRIPT_INPUT_FILE_0\"\n";
 		};
 		93DEE2C01D1E2EC6008FF7B6 /* Install Fat Library */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4886,7 +4879,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "source \"$SCRIPT_INPUT_FILE_0\"";
+			shellScript = "source \"$SCRIPT_INPUT_FILE_0\"\n";
 			showEnvVarsInLog = 0;
 		};
 		93DEE2CE1D1E30E2008FF7B6 /* Install Fat Library */ = {
@@ -5755,11 +5748,6 @@
 			target = 27E66A571A7305B10091DA3F /* CBL SQLite Storage */;
 			targetProxy = 27E66B4A1A73082E0091DA3F /* PBXContainerItemProxy */;
 		};
-		27E66B4D1A73082E0091DA3F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27E66AD01A7307590091DA3F /* CBL ForestDB Storage */;
-			targetProxy = 27E66B4C1A73082E0091DA3F /* PBXContainerItemProxy */;
-		};
 		27F1B0061A84160E0056DA1E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27E66A571A7305B10091DA3F /* CBL SQLite Storage */;
@@ -5828,6 +5816,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27FFFF511C973FB5001A70FC /* Project_Debug.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -5835,6 +5824,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27FFFF521C973FB5001A70FC /* Project_Release.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -5970,6 +5960,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27FFFF151C973FB5001A70FC /* iOS framework_Debug.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1.4.4;
+				DEVELOPMENT_TEAM = PPA5SYHRAZ;
+				SUPPORTS_MACCATALYST = NO;
 			};
 			name = Debug;
 		};
@@ -5977,6 +5970,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27FFFF161C973FB5001A70FC /* iOS framework_Release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CURRENT_PROJECT_VERSION = 1.4.4;
+				DEVELOPMENT_TEAM = PPA5SYHRAZ;
+				SUPPORTS_MACCATALYST = NO;
 			};
 			name = Release;
 		};
